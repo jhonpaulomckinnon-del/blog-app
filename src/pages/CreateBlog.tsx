@@ -36,7 +36,7 @@ export default function CreateBlog() {
     try {
       if (image) {
         const fileName = `${Date.now()}-${image.name}`;
-        const { data, error: uploadError } = await supabase.storage
+        const { error: uploadError } = await supabase.storage
           .from("blog-images")
           .upload(fileName, image, { upsert: true });
 
